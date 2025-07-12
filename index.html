@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Ingénieur en Informatique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1399f2, #eeeeeda0);
+        }
+
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e0e0e0;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #6e8efb, #a777e3);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #6e8efb;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-gray-800">Hikson</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600">Accueil</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">À propos</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">Compétences</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">Projets</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4 shadow-lg">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Accueil</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">À propos</a>
+            <a href="#skills" class="block py-2 text-gray-700 hover:text-blue-600">Compétences</a>
+            <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-600">Projets</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 gradient-bg text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Bonjour, je suis <span
+                            class="text-yellow-300">Ingénieur en Informatique</span></h1>
+                    <p class="text-lg md:text-xl mb-6">Spécialisé en développement web/mobile et cybersécurité. CEO de
+                        Ultratech.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact"
+                            class="bg-white text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition duration-300">Me
+                            contacter</a>
+                        <a href="#projects"
+                            class="border-2 border-white text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-blue-600 transition duration-300">Mes
+                            projets</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div
+                        class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                        <img src="hikson.png"
+                            alt="Profile" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">À propos de moi</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="relative w-64 h-64 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                            alt="About" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">Qui suis-je ?</h3>
+                    <p class="text-gray-600 mb-4">Je suis un ingénieur en informatique de 24 ans, passionné par les
+                        technologies innovantes et la cybersécurité. En tant que CEO de Ultratech, je dirige une équipe
+                        talentueuse pour créer des solutions technologiques de pointe.</p>
+                    <p class="text-gray-600 mb-6">J'ai formé de nombreux étudiants et travaillé sur divers projets web,
+                        graphiques et vidéos. Mon objectif est de me spécialiser davantage en cybersécurité pour
+                        contribuer à un internet plus sûr.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-user-tie text-blue-500 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-medium">Hikwoulbo Talerant</h4>
+                                <p class="text-gray-600">Ingénieur en Informatique</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-500 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-gray-600">ultratechnologyy@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-blue-500 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-medium">Téléphone</h4>
+                                <p class="text-gray-600">+237 699 156 551</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-briefcase text-blue-500 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-medium">Entreprise</h4>
+                                <p class="text-gray-600">Ultratech</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://startup-ultratech.vercel.app" target="_blank"
+                            class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                            <i class="fas fa-globe mr-2"></i> Visiter le site de Ultratech
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Mes compétences</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Technical Skills -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-laptop-code text-blue-500 mr-3"></i> Compétences Techniques
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Développement Web</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Développement Mobile</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Ethical Hacking</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Administration Système</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creative Skills -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-paint-brush text-blue-500 mr-3"></i> Compétences Créatives
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Design Graphique</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Montage Vidéo</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Création de Contenu</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Formation en Informatique</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cybersecurity Focus -->
+            <div class="mt-12 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-8 rounded-lg shadow-lg">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-3/4 mb-4 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-2">Spécialisation en Cybersécurité</h3>
+                        <p class="opacity-90">Je me concentre actuellement sur le renforcement de mes compétences en
+                            cybersécurité pour protéger les systèmes et les données contre les cybermenaces.</p>
+                    </div>
+                    <div class="md:w-1/4 flex justify-center md:justify-end">
+                        <div class="bg-white text-blue-600 px-6 py-2 rounded-full font-medium inline-flex items-center">
+                            <i class="fas fa-shield-alt mr-2"></i> En cours
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Mes projets récents</h2>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Web Project -->
+                <div
+                    class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-500 ease-in-out">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Web Project" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-globe text-blue-500 mr-2"></i>
+                            <h3 class="font-semibold text-lg">Projet Web</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Développement d'applications web performantes et sécurisées avec
+                            les dernières technologies.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">HTML/CSS</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">JavaScript</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Project -->
+                <div
+                    class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-500 ease-in-out">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Mobile Project" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-mobile-alt text-blue-500 mr-2"></i>
+                            <h3 class="font-semibold text-lg">Projet Mobile</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Création d'applications mobiles cross-platform avec des interfaces
+                            utilisateur intuitives.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Flutter</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">React Native</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphic Design -->
+                <div
+                    class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-500 ease-in-out">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                            alt="Graphic Design" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-palette text-blue-500 mr-2"></i>
+                            <h3 class="font-semibold text-lg">Design Graphique</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Conception d'identités visuelles, logos, et supports de
+                            communication percutants.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Photoshop</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Illustrator</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Figma</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Editing -->
+                <div
+                    class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-500 ease-in-out">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                            alt="Video Editing" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-video text-blue-500 mr-2"></i>
+                            <h3 class="font-semibold text-lg">Montage Vidéo</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Production de vidéos professionnelles avec des effets visuels
+                            captivants.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Premiere Pro</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">After Effects</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">DaVinci Resolve</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Creation -->
+                <div
+                    class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-500 ease-in-out">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Content Creation" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-pen-fancy text-blue-500 mr-2"></i>
+                            <h3 class="font-semibold text-lg">Création de Contenu</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Production de contenu engageant pour les médias sociaux et les
+                            plateformes numériques.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Rédaction</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Stratégie</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">SEO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ultratech -->
+                <div
+                    class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-500 ease-in-out">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Ultratech" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-rocket text-blue-500 mr-2"></i>
+                            <h3 class="font-semibold text-lg">Startup Ultratech</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Direction d'une startup innovante spécialisée dans les solutions
+                            technologiques avancées.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Management</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Innovation</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Technologie</span>
+                        </div>
+                        <a href="https://startup-ultratech.vercel.app" target="_blank"
+                            class="inline-block mt-4 text-blue-600 hover:text-blue-800 text-sm">
+                            <i class="fas fa-external-link-alt mr-1"></i> Visiter le site
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Contactez-moi</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-6">Envoyez un message</h3>
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2">Nom</label>
+                                <input type="text" id="name"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 mb-2">Sujet</label>
+                                <input type="text" id="subject"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" rows="4"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                                Envoyer le message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-semibold mb-6">Coordonnées</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Email</h4>
+                                    <a href="mailto:ultratechnologyy@gmail.com"
+                                        class="text-blue-600 hover:underline">ultratechnologyy@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Téléphone</h4>
+                                    <a href="tel:+237699156551" class="text-blue-600 hover:underline">+237 699 156
+                                        551</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-briefcase text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Entreprise</h4>
+                                    <p>Ultratech</p>
+                                    <a href="https://startup-ultratech.vercel.app" target="_blank"
+                                        class="text-blue-600 hover:underline text-sm">startup-ultratech.vercel.app</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Localisation</h4>
+                                    <p>Cameroun</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-800 mb-4">Réseaux sociaux</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/hikson-talerant-165867272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                                    class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://x.com/HiksonTalerant"
+                                    class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://hikwoulbotalerant.github.io/monportfolio/"
+                                    class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.instagram.com/hikson_talerant?igsh=ZGFqdGc0eTQzc2I="
+                                    class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Ultratech</h3>
+                    <p class="text-gray-400 mt-1">Innovation et technologie au service de votre réussite.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-gray-400 hover:text-white transition duration-300">Accueil</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition duration-300">À propos</a>
+                    <a href="#skills" class="text-gray-400 hover:text-white transition duration-300">Compétences</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition duration-300">Projets</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Ultratech. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Here you would typically send the data to a server
+            // For this example, we'll just show an alert
+            alert(`Merci pour votre message, ${name}! Je vous répondrai dès que possible.`);
+
+            // Reset form
+            this.reset();
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.project-card, .skill-bar');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.project-card, .skill-bar').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+
+        // Run animation check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Run once on page load
+        animateOnScroll();
+    </script>
+</body>
+
+</html>
